@@ -1,3 +1,3 @@
-console.log('This message will not appear in the console');
+localStorage.setItem("ui-theme", "light");
 
-cos value = 5;
+console.log(localStorage);
