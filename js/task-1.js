@@ -1,6 +1,6 @@
-localStorage.setItem("ui-theme", "light");
+//localStorage.setItem("ui-theme", "light");
 
-
+/*
 console.log(localStorage);
 
 const settings = {
@@ -10,7 +10,7 @@ const settings = {
 };
 
 localStorage.setItem("settings", JSON.stringify(settings));
-/*
+*/
 const form = document.querySelector(".feedback-form");
 const textarea = form.elements.message;
 const localStorageKey = "goit-example-message";
@@ -28,4 +28,3 @@ form.addEventListener("submit", (evt) => {
   form.reset();
 });
 
-*/
