@@ -30,3 +30,33 @@ body{
 .gallery {
   flex-wrap: wrap;
 }
+
+/* FORM */
+.feedback-form {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-form label {
+  display: flex;
+  flex-direction: column;
+}
+input, textarea{
+  margin: 4px 0px;
+  border-radius: 4px;
+  padding: 5px;
+  box-shadow: none;
+  border: 1px solid black;
+}
+button{
+  padding: 8px 16px;
+  border-radius: 5px;
+  background-color: #4E75FF;
+  width: fit-content;
+  color: white;
+  border: none;
+  box-shadow: none;
+  font-size: 16px;
+  margin-top: 10px;
+}
