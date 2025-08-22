@@ -13,8 +13,8 @@ const form = document.querySelector("form");
 
 form.addEventListener("input", event => {
   if (event.target.name) {
-    formData.email = form.email.value;
-    formData.message = form.message.value;
+    formData.email = form.email.value.trim();
+    formData.message = form.message.value.trim();
   }
   localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 });
@@ -26,10 +26,10 @@ form.addEventListener("input", event => {
  });
 
   const savedSettings = localStorage.getItem("feedback-form-state");
-  console.log(savedSettings); // A string
+  //console.log(savedSettings); // A string
 
-  const parsedSettings = JSON.parse(savedSettings);
-  //console.log(parsedSettings.email); // Settings object
+const parsedSettings = JSON.parse(savedSettings);
+console.log(JSON.stringify(parsedSettings));
 
 if (parsedSettings !== null) {
   form.email.value = parsedSettings.email;
