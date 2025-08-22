@@ -1,15 +1,22 @@
 'use strict';
 import "../css/styles.css";
 
-console.log("success");
-
 const formData = {
   email: "",
   message: ""
 };
 
 const form = document.querySelector("form");
+const savedSettings = localStorage.getItem("feedback-form-state");
+const parsedSettings = JSON.parse(savedSettings);
+console.log(parsedSettings);
 
+if (parsedSettings !== null) {
+  form.email.value = parsedSettings.email;
+  form.message.value = parsedSettings.message;
+} else {
+ console.log("no date");
+}
 
 form.addEventListener("input", event => {
   if (event.target.name) {
@@ -19,24 +26,20 @@ form.addEventListener("input", event => {
   localStorage.setItem("feedback-form-state", JSON.stringify(formData));
 });
 
- form.addEventListener("submit", event => {
-   event.preventDefault();
-   localStorage.removeItem("feedback-form-state");
-   form.reset();
+form.addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (form.email.value != "" && form.message.value != "") {
+    localStorage.removeItem("feedback-form-state");
+    form.reset();
+    formData.email = "";
+    formData.message = "";
+  } else {
+    alert("Enter email and message");
+  }
  });
 
-  const savedSettings = localStorage.getItem("feedback-form-state");
-  //console.log(savedSettings); // A string
 
-const parsedSettings = JSON.parse(savedSettings);
-console.log(JSON.stringify(parsedSettings));
-
-if (parsedSettings !== null) {
-  form.email.value = parsedSettings.email;
-  form.message.value = parsedSettings.message;
-} else {
- console.log("no date");
-}
 
 
 
