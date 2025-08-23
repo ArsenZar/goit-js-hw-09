@@ -6,14 +6,17 @@ const formData = {
   message: ""
 };
 
+
 const form = document.querySelector("form");
 const savedSettings = localStorage.getItem("feedback-form-state");
 const parsedSettings = JSON.parse(savedSettings);
-console.log(parsedSettings);
 
 if (parsedSettings !== null) {
   form.email.value = parsedSettings.email;
   form.message.value = parsedSettings.message;
+
+  formData.email = parsedSettings.email;
+  formData.message = parsedSettings.message;
 } else {
  console.log("no date");
 }
@@ -28,7 +31,7 @@ form.addEventListener("input", event => {
 
 form.addEventListener("submit", event => {
   event.preventDefault();
-
+  console.log(formData);
   if (form.email.value != "" && form.message.value != "") {
     localStorage.removeItem("feedback-form-state");
     form.reset();
