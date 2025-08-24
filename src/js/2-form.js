@@ -31,36 +31,11 @@ form.addEventListener("input", event => {
 
 form.addEventListener("submit", event => {
   event.preventDefault();
-  console.log(formData);
-  if (form.email.value != "" && form.message.value != "") {
+  if (form.email.value.trim() !== "" && form.message.value.trim() !== "") {
     localStorage.removeItem("feedback-form-state");
     form.reset();
+    console.log(formData);
     formData.email = "";
     formData.message = "";
-  } else {
-    alert("Enter email and message");
   }
  });
-
-
-
-
-
-
-/*
-formData.setItem("settings", JSON.stringify(settings));
-
-
-
-
-try {
-  const data = JSON.parse("Well, this is awkward");
-} catch (error) {
-  console.log(error.name); // "SyntaxError"
-  console.log(error.message); // Unexpected token W in JSON at position 0
-}
-
-console.log("✅ This is fine, we handled parsing error in try...catch");
-
-
-*/
